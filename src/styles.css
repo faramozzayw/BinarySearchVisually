@@ -1,4 +1,63 @@
+:root {
+	background-color: whitesmoke;
+
+	--basic-color: #4a4a4a;
+}
+
 .App {
 	font-family: sans-serif;
 	text-align: center;
+}
+
+.array {
+	padding: 0;
+	margin: 5rem;
+
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.array h3 {
+	font-size: 2rem;
+	text-align: start;
+}
+
+.array ul {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	flex: none;
+	border: 5px var(--basic-color);
+	border-style: dashed solid;
+
+	width: max-content;
+}
+
+.array ul li {
+	margin: 0px;
+	padding: 1vmin 2.5vmin;
+
+	background-color: white;
+	color: #3273dc;
+
+	text-align: center;
+
+	font-size: 2.75rem;
+	font-weight: bold;
+}
+
+.array ul li:not(:last-child)::after {
+	content: ", ";
+}
+
+.array ul li:first-child::before {
+	content: "[ ";
+	color: yellowgreen;
+}
+
+.array ul li:last-child::after {
+	content: " ]";
+	color: yellowgreen;
 }
