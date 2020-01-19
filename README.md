@@ -1,2 +1,0 @@
-# BinarySearchVisually
-Created with CodeSandbox
