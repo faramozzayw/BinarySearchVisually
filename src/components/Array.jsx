@@ -1,8 +1,12 @@
 import React from "react";
 
-const Array = ({ data = [1, 2, 3, 4, 5], header = "Your array: " }) => {
+const Array = ({ data = [1, 2, 3, 4, 5, 6], header = "Your array: " }) => {
 	const list = data.map((el, i) => {
-		return <li key={i}>{el}</li>;
+		return (
+			<li key={i} className={`${i === 3 ? "active" : ""}`}>
+				{el}
+			</li>
+		);
 	});
 
 	return (

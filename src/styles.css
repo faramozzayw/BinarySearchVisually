@@ -2,6 +2,7 @@
 	background-color: whitesmoke;
 
 	--basic-color: #4a4a4a;
+	--brackets-color: yellowgreen;
 }
 
 .App {
@@ -21,7 +22,8 @@
 
 .array h3 {
 	font-size: 2rem;
-	text-align: start;
+	text-align: center;
+	padding-block-end: 1rem;
 }
 
 .array ul {
@@ -50,14 +52,29 @@
 
 .array ul li:not(:last-child)::after {
 	content: ", ";
+	color: rebeccapurple;
 }
 
 .array ul li:first-child::before {
 	content: "[ ";
-	color: yellowgreen;
+	color: var(--brackets-color);
 }
 
 .array ul li:last-child::after {
 	content: " ]";
-	color: yellowgreen;
+	color: var(--brackets-color);
+}
+
+/* mid element */
+.array ul li.active {
+	transform: scale(1.25);
+	outline: 5px dotted var(--basic-color);
+	color: crimson;
+	transition: all 0.25s ease-out;
+}
+
+/*  */
+.array ul li:not(.active) {
+	filter: blur(1.5px);
+	transition: filter 0.1s ease-out;
 }
