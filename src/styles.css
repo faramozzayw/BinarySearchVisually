@@ -8,11 +8,13 @@
 .App {
 	font-family: sans-serif;
 	text-align: center;
+
+	padding: 2rem;
 }
 
 .array {
 	padding: 0;
-	margin: 5rem;
+	margin: 2rem 5rem;
 
 	display: flex;
 	flex-flow: column;
@@ -31,6 +33,7 @@
 	flex-flow: row;
 	justify-content: center;
 	flex: none;
+
 	border: 5px var(--basic-color);
 	border-style: dashed solid;
 
@@ -48,6 +51,10 @@
 
 	font-size: 2.75rem;
 	font-weight: bold;
+
+	transition: all 0.25s ease-out;
+
+	pointer-events: none;
 }
 
 .array ul li:not(:last-child)::after {
@@ -70,7 +77,6 @@
 	transform: scale(1.25);
 	outline: 5px dotted var(--basic-color);
 	color: crimson;
-	transition: all 0.25s ease-out;
 }
 
 /*  */

@@ -1,11 +1,13 @@
 import React from "react";
 
 import Array from "./components/Array";
+import Form from "./components/Form";
 
 export default function App() {
 	return (
-		<div className="App">
+		<main className="App">
+			<Form />
 			<Array />
-		</div>
+		</main>
 	);
 }
