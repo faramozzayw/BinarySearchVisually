@@ -17,9 +17,10 @@
 	margin: 2rem 5rem;
 
 	display: flex;
-	flex-flow: column;
+	flex-flow: column wrap;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: nowrap;
 }
 
 .array h3 {
@@ -30,7 +31,7 @@
 
 .array ul {
 	display: flex;
-	flex-flow: row;
+	flex-flow: row wrap;
 	justify-content: center;
 	flex: none;
 
@@ -55,6 +56,9 @@
 	transition: all 0.25s ease-out;
 
 	pointer-events: none;
+
+	opacity: 0;
+	animation: show 2s 1 forwards;
 }
 
 .array ul li:not(:last-child)::after {
@@ -86,3 +90,12 @@
 	transition: filter 0.1s ease-out;
 }
 */
+
+@keyframes show {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

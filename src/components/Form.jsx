@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 
 import useStoreon from "storeon/react";
 
@@ -6,9 +6,9 @@ const Form = () => {
 	const inputRef = useRef(null);
 	const { dispatch } = useStoreon("input");
 
-	const updateInput = useCallback(() =>
-		dispatch("updateInput", inputRef.current.value),
-	);
+	const updateInput = useCallback(() => {
+		dispatch("updateInput", inputRef.current.value);
+	});
 
 	return (
 		<form>
