@@ -1,14 +1,14 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 import useStoreon from "storeon/react";
 
 const Form = () => {
 	const inputRef = useRef(null);
-	const { dispatch, input } = useStoreon("input");
+	const { dispatch } = useStoreon("input");
 
-	const updateinput = useCallback(() => {
-		dispatch("updateInput", inputRef.current.value);
-	});
+	const updateInput = useCallback(() =>
+		dispatch("updateInput", inputRef.current.value),
+	);
 
 	return (
 		<form>
@@ -18,16 +18,22 @@ const Form = () => {
 						ref={inputRef}
 						type="text"
 						className="input is-primary is-medium"
-						placeholder="TODO"
+						placeholder="Input your array"
+						onChange={updateInput}
 					/>
 				</div>
 			</div>
-			<button
-				className="button is-primary is-medium"
-				type="button"
-				onClick={updateinput}
-			>
-				Test {input}
+			<div className="field is-grouped is-grouped-centered">
+				<div className="control">
+					<input
+						type="text"
+						className="input is-info is-medium"
+						placeholder="Input your key"
+					/>
+				</div>
+			</div>
+			<button className="button is-success is-medium" type="button">
+				Start search
 			</button>
 		</form>
 	);

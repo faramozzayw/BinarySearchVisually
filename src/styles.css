@@ -72,15 +72,17 @@
 	color: var(--brackets-color);
 }
 
-/* mid element */
+/* mid element 
 .array ul li.active {
 	transform: scale(1.25);
 	outline: 5px dotted var(--basic-color);
 	color: crimson;
 }
+*/
 
-/*  */
+/*  
 .array ul li:not(.active) {
 	filter: blur(1.5px);
 	transition: filter 0.1s ease-out;
 }
+*/

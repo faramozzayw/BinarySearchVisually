@@ -1,13 +1,17 @@
 import React from "react";
 
-const Array = ({ data = [1, 2, 3, 4, 5, 6], header = "Your array: " }) => {
-	if (!data) {
+import useStoreon from "storeon/react";
+
+const Array = ({ data, header = "Your array: " }) => {
+	const { input } = useStoreon("input");
+
+	if (!input || input.length === 0) {
 		return null;
 	}
 
-	const list = data.map((el, i) => {
+	const list = input.map((el, i) => {
 		return (
-			<li key={i} className={`${i === 3 ? "active" : ""} array-element`}>
+			<li key={i} className={`array-element`}>
 				{el}
 			</li>
 		);
