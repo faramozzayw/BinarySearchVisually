@@ -3,6 +3,10 @@
 
 	--basic-color: #4a4a4a;
 	--brackets-color: yellowgreen;
+
+	--left-brackets: "[ ";
+	--right-brackets: " ]";
+	--separator: ", ";
 }
 
 .App {
@@ -41,7 +45,7 @@
 	width: max-content;
 }
 
-.array ul li {
+.array .array-item {
 	margin: 0px;
 	padding: 1vmin 2.5vmin;
 
@@ -55,38 +59,45 @@
 
 	transition: all 0.25s ease-out;
 
-	pointer-events: none;
-
 	opacity: 0;
 	animation: show 2s 1 forwards;
 }
 
-.array ul li:not(:last-child)::after {
-	content: ", ";
+.array .array-item:not(:last-child)::after {
+	content: var(--separator);
 	color: rebeccapurple;
 }
 
-.array ul li:first-child::before {
-	content: "[ ";
+.array .array-item:first-child::before {
+	content: var(--left-brackets);
 	color: var(--brackets-color);
 }
 
-.array ul li:last-child::after {
-	content: " ]";
+.array .array-item:last-child::after {
+	content: var(--right-brackets);
 	color: var(--brackets-color);
 }
 
-/* mid element 
-.array ul li.active {
+.array-item:hover {
+	transform: scale(1.25);
+	outline: 5px dashed var(--basic-color);
+	color: blueviolet;
+	z-index: 1;
+	transition: all 0.25s easy-out;
+}
+
+.array-item.active {
 	transform: scale(1.25);
 	outline: 5px dotted var(--basic-color);
 	color: crimson;
+	z-index: 1;
+	transition: all 0.25s easy-out;
 }
-*/
 
-/*  
-.array ul li:not(.active) {
+/*
+.array-item:not(.active) {
 	filter: blur(1.5px);
+	z-index: 1;
 	transition: filter 0.1s ease-out;
 }
 */

@@ -11,7 +11,7 @@ const Array = ({ data, header = "Your array: " }) => {
 
 	const list = input.map((el, i) => {
 		return (
-			<li key={i} className={`array-element`}>
+			<li key={i} className={`array-item`}>
 				{el}
 			</li>
 		);
