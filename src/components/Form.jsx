@@ -5,6 +5,8 @@ import useStoreon from "storeon/react";
 import ErrorButton from "./Buttons/ErrorButton";
 import SearchButton from "./Buttons/SearchButton";
 
+import { arrayHelp } from "./../utils/consts";
+
 const Form = () => {
 	const inputRef = useRef(null);
 	const { dispatch, inputError } = useStoreon("input", "inputError");
@@ -28,11 +30,18 @@ const Form = () => {
 					<input
 						ref={inputRef}
 						type="text"
-						className="input is-primary is-medium"
+						className={`input is-${
+							inputError ? "danger" : "primary"
+						} is-medium`}
 						placeholder="Input your array"
 						name="arrayInput"
 						onChange={updateInput}
+						required
+						// autoFocus
 					/>
+					<p className="help" data-error={inputError.toString()}>
+						{arrayHelp[inputError ? "isNan" : "isOk"]}
+					</p>
 				</div>
 			</div>
 			<div className="field is-grouped is-grouped-centered">
@@ -42,7 +51,9 @@ const Form = () => {
 						type="text"
 						className="input is-info is-medium"
 						placeholder="Input your key"
+						required
 					/>
+					<p className="help">Mock</p>
 				</div>
 			</div>
 			<Button />

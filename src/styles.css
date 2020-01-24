@@ -2,6 +2,7 @@
 	background-color: whitesmoke;
 
 	--basic-color: #4a4a4a;
+	--error-color: #f00000;
 	--brackets-color: yellowgreen;
 
 	--left-brackets: "[ ";
@@ -46,7 +47,17 @@
 }
 
 .array.error .array-box {
-	box-shadow: 0 0 20px 15px #f00000;
+	box-shadow: 0 0 20px 15px var(--error-color);
+}
+
+.array.error .array-box {
+	border: 5px var(--error-color);
+	border-style: dashed;
+}
+
+.help[data-error="true"] {
+	text-decoration-line: underline;
+	color: var(--error-color);
 }
 
 .array .array-item {
@@ -88,6 +99,10 @@
 	color: blueviolet;
 	z-index: 1;
 	transition: all 0.25s easy-out;
+}
+
+.array.error .array-item:hover {
+	outline: 5px dashed var(--error-color);
 }
 
 .array-item.active {
