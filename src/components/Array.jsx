@@ -2,8 +2,8 @@ import React from "react";
 
 import useStoreon from "storeon/react";
 
-const Array = ({ data, header = "Your array: " }) => {
-	const { input } = useStoreon("input");
+const Array = ({ header = "Your array: " }) => {
+	const { input, inputError } = useStoreon("input", "inputError");
 
 	if (!input || input.length === 0) {
 		return null;
@@ -18,9 +18,9 @@ const Array = ({ data, header = "Your array: " }) => {
 	});
 
 	return (
-		<section className="array">
+		<section className={`array ${inputError ? "error" : ""}`}>
 			<h3>{header}</h3>
-			<ul>{list}</ul>
+			<ul className="array-box">{list}</ul>
 		</section>
 	);
 };

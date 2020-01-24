@@ -33,7 +33,7 @@
 	padding-block-end: 1rem;
 }
 
-.array ul {
+.array .array-box {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -43,6 +43,10 @@
 	border-style: dashed solid;
 
 	width: max-content;
+}
+
+.array.error .array-box {
+	box-shadow: 0 0 20px 15px #f00000;
 }
 
 .array .array-item {

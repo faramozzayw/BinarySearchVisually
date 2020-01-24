@@ -4,11 +4,25 @@ import useStoreon from "storeon/react";
 
 const Form = () => {
 	const inputRef = useRef(null);
-	const { dispatch } = useStoreon("input");
+	const { dispatch, inputError } = useStoreon("input", "inputError");
 
 	const updateInput = useCallback(() => {
 		dispatch("updateInput", inputRef.current.value);
 	});
+
+	const ErrorButton = () => (
+		<button className="button is-danger is-medium" disabled>
+			Error was found
+		</button>
+	);
+
+	const SearchButton = () => (
+		<button className="button is-success is-medium" type="button">
+			Start search
+		</button>
+	);
+
+	const Button = () => (inputError ? <ErrorButton /> : <SearchButton />);
 
 	return (
 		<form>
@@ -32,9 +46,7 @@ const Form = () => {
 					/>
 				</div>
 			</div>
-			<button className="button is-success is-medium" type="button">
-				Start search
-			</button>
+			<Button />
 		</form>
 	);
 };
