@@ -3,7 +3,7 @@ import React from "react";
 import useStoreon from "storeon/react";
 
 const Array = ({ header = "Your array: " }) => {
-	const { input, inputError } = useStoreon("input", "inputError");
+	const { input, globalError } = useStoreon("input", "globalError");
 
 	if (!input || input.length === 0) {
 		return null;
@@ -18,7 +18,7 @@ const Array = ({ header = "Your array: " }) => {
 	});
 
 	return (
-		<section className={`array ${inputError ? "error" : ""}`}>
+		<section className={`array ${globalError ? "error" : ""}`}>
 			<h3>{header}</h3>
 			<ul className="array-box">{list}</ul>
 		</section>

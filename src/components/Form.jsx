@@ -5,14 +5,25 @@ import useStoreon from "storeon/react";
 import ErrorButton from "./Buttons/ErrorButton";
 import SearchButton from "./Buttons/SearchButton";
 
-import { arrayHelp } from "./../utils/consts";
+import { arrayHelp, keyHelp } from "./../utils/consts";
 
 const Form = () => {
 	const inputRef = useRef(null);
-	const { dispatch, inputError } = useStoreon("input", "inputError");
+	const keyRef = useRef(null);
+
+	const { dispatch, arrayError, keyError, globalError } = useStoreon(
+		"input",
+		"arrayError",
+		"keyError",
+		"globalError",
+	);
 
 	const updateInput = useCallback(() => {
 		dispatch("updateInput", inputRef.current.value);
+	});
+
+	const updateKey = useCallback(() => {
+		dispatch("updateKey", keyRef.current.value);
 	});
 
 	const onSubmit = e => {
@@ -21,7 +32,7 @@ const Form = () => {
 	};
 
 	const Button = () =>
-		inputError ? <ErrorButton /> : <SearchButton onSubmit={onSubmit} />;
+		globalError ? <ErrorButton /> : <SearchButton onSubmit={onSubmit} />;
 
 	return (
 		<form onSubmit={onSubmit}>
@@ -31,7 +42,7 @@ const Form = () => {
 						ref={inputRef}
 						type="text"
 						className={`input is-${
-							inputError ? "danger" : "primary"
+							arrayError ? "danger" : "primary"
 						} is-medium`}
 						placeholder="Input your array"
 						name="arrayInput"
@@ -39,21 +50,25 @@ const Form = () => {
 						required
 						// autoFocus
 					/>
-					<p className="help" data-error={inputError.toString()}>
-						{arrayHelp[inputError ? "isNan" : "isOk"]}
+					<p className="help" data-error={arrayError.toString()}>
+						{arrayHelp[arrayError ? "isNan" : "isOk"]}
 					</p>
 				</div>
 			</div>
 			<div className="field is-grouped is-grouped-centered">
 				<div className="control">
 					<input
+						ref={keyRef}
 						name="keyInput"
 						type="text"
-						className="input is-info is-medium"
+						className={`input is-${keyError ? "danger" : "info"} is-medium`}
 						placeholder="Input your key"
 						required
+						onChange={updateKey}
 					/>
-					<p className="help">Mock</p>
+					<p className="help" data-error={keyError.toString()}>
+						{keyHelp[keyError ? "isNan" : "isOk"]}
+					</p>
 				</div>
 			</div>
 			<Button />
