@@ -3,7 +3,7 @@ import React from "react";
 import useStoreon from "storeon/react";
 
 const Array = ({ header = "Your array: " }) => {
-	const { input, globalError } = useStoreon("input", "globalError");
+	const { input, globalError } = useStoreon("globalError");
 
 	if (!input || input.length === 0) {
 		return null;

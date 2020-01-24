@@ -12,7 +12,6 @@ const Form = () => {
 	const keyRef = useRef(null);
 
 	const { dispatch, arrayError, keyError, globalError } = useStoreon(
-		"input",
 		"arrayError",
 		"keyError",
 		"globalError",

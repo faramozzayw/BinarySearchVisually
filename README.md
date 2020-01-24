@@ -2,8 +2,7 @@
 
 This is a binary search visualization application.
 
-[Link to demo](https://binarysearchvisually.now.sh/)
-[CodeSandbox](https://codesandbox.io/s/github/faramozzayw/BinarySearchVisually)
+[Live-demo](https://binarysearchvisually.now.sh/) | [CodeSandbox](https://codesandbox.io/s/github/faramozzayw/BinarySearchVisually)
 
 Technology stack:
 
