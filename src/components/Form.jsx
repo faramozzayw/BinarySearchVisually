@@ -2,6 +2,9 @@ import React, { useCallback, useRef } from "react";
 
 import useStoreon from "storeon/react";
 
+import ErrorButton from "./Buttons/ErrorButton";
+import SearchButton from "./Buttons/SearchButton";
+
 const Form = () => {
 	const inputRef = useRef(null);
 	const { dispatch, inputError } = useStoreon("input", "inputError");
@@ -10,22 +13,16 @@ const Form = () => {
 		dispatch("updateInput", inputRef.current.value);
 	});
 
-	const ErrorButton = () => (
-		<button className="button is-danger is-medium" disabled>
-			Error was found
-		</button>
-	);
+	const onSubmit = e => {
+		e.preventDefault();
+		console.log("on submit");
+	};
 
-	const SearchButton = () => (
-		<button className="button is-success is-medium" type="button">
-			Start search
-		</button>
-	);
-
-	const Button = () => (inputError ? <ErrorButton /> : <SearchButton />);
+	const Button = () =>
+		inputError ? <ErrorButton /> : <SearchButton onSubmit={onSubmit} />;
 
 	return (
-		<form>
+		<form onSubmit={onSubmit}>
 			<div className="field is-grouped is-grouped-centered">
 				<div className="control">
 					<input
@@ -33,6 +30,7 @@ const Form = () => {
 						type="text"
 						className="input is-primary is-medium"
 						placeholder="Input your array"
+						name="arrayInput"
 						onChange={updateInput}
 					/>
 				</div>
@@ -40,6 +38,7 @@ const Form = () => {
 			<div className="field is-grouped is-grouped-centered">
 				<div className="control">
 					<input
+						name="keyInput"
 						type="text"
 						className="input is-info is-medium"
 						placeholder="Input your key"

@@ -12,7 +12,7 @@ const Array = ({ header = "Your array: " }) => {
 	const list = input.map((el, i) => {
 		return (
 			<li key={i} className={`array-item`}>
-				{el}
+				{el.toString()}
 			</li>
 		);
 	});

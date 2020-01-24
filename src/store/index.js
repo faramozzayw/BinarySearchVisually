@@ -1,5 +1,7 @@
 import createStore from "storeon";
 
+import { isEmptyString } from "./../utils/predicates";
+
 const separator = ",";
 
 const input = store => {
@@ -9,7 +11,7 @@ const input = store => {
 		const input = _input
 			.split(separator)
 			.map(elem => elem.trim())
-			.filter(elem => elem !== "")
+			.filter(elem => !isEmptyString(elem))
 			.map(Number);
 
 		const inputError = input.includes(NaN);
