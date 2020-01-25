@@ -1,6 +1,6 @@
 const searchStore = store => {
 	store.on("@init", () => ({
-		currentIndex: null,
+		currentIndex: -1,
 	}));
 
 	store.on("changeCurrent", (state, currentIndex) => {

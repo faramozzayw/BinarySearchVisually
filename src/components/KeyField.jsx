@@ -12,6 +12,7 @@ const KeyField = () => {
 	const updateKey = useCallback(() => {
 		dispatch("updateKey", keyRef.current.value);
 	});
+
 	return (
 		<div className="field is-grouped is-grouped-centered">
 			<div className="control">

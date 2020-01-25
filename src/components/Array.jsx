@@ -6,6 +6,7 @@ const Array = ({ header = "Your array: " }) => {
 	const { input, globalError, currentIndex } = useStoreon(
 		"input",
 		"globalError",
+		"currentIndex",
 	);
 
 	if (!input || input.length === 0) {
