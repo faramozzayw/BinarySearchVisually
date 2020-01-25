@@ -8,17 +8,18 @@ import SearchButton from "./Buttons/SearchButton";
 import { arrayHelp, keyHelp } from "./../utils/consts";
 
 const Form = () => {
-	const inputRef = useRef(null);
+	const arrayRef = useRef(null);
 	const keyRef = useRef(null);
 
 	const { dispatch, arrayError, keyError, globalError } = useStoreon(
+		"input",
 		"arrayError",
 		"keyError",
 		"globalError",
 	);
 
 	const updateInput = useCallback(() => {
-		dispatch("updateInput", inputRef.current.value);
+		dispatch("updateInput", arrayRef.current.value);
 	});
 
 	const updateKey = useCallback(() => {
@@ -38,7 +39,7 @@ const Form = () => {
 			<div className="field is-grouped is-grouped-centered">
 				<div className="control">
 					<input
-						ref={inputRef}
+						ref={arrayRef}
 						type="text"
 						className={`input is-${
 							arrayError ? "danger" : "primary"
