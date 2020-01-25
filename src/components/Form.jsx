@@ -32,8 +32,10 @@ const Form = () => {
 		if (key === arr[mid]) {
 			yield mid;
 		} else if (arr[mid] > key) {
+			dispatch("changeRight", mid);
 			yield* binarySearch(arr, key, start, mid - 1);
 		} else if (arr[mid] < key) {
+			dispatch("changeLeft", mid);
 			yield* binarySearch(arr, key, mid + 1, end);
 		} else {
 			throw new TypeError("Unexpected comparison error, NaN may be found");
@@ -44,11 +46,16 @@ const Form = () => {
 		e.preventDefault();
 
 		const gener = binarySearch(input, key);
+		let result = -1;
 
-		for await (let $_$ of gener) {
+		for await (let value of gener) {
+			result = value;
 		}
 
-		dispatch("changeCurrent", -1);
+		console.log(result);
+
+		dispatch("setResult", result);
+		dispatch("$toDefaultIndex");
 	};
 
 	const Button = () =>

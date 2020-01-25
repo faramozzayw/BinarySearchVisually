@@ -3,10 +3,13 @@ import React from "react";
 import useStoreon from "storeon/react";
 
 const Array = ({ header = "Your array: " }) => {
-	const { input, globalError, currentIndex } = useStoreon(
+	const { input, globalError, currentIndex, left, right, result } = useStoreon(
 		"input",
 		"globalError",
 		"currentIndex",
+		"left",
+		"right",
+		"result",
 	);
 
 	if (!input || input.length === 0) {
@@ -14,11 +17,20 @@ const Array = ({ header = "Your array: " }) => {
 	}
 
 	const list = input.map((el, i) => {
+		let className = "array-item";
+
+		if (i === currentIndex) {
+			className += " active";
+		} else if (i <= left) {
+			className += " left";
+		} else if (i >= right) {
+			className += " right";
+		} else if (i === result) {
+			className += " result";
+		}
+
 		return (
-			<li
-				key={i}
-				className={`array-item ${i === currentIndex ? "active" : ""}`}
-			>
+			<li key={i} className={className}>
 				{el.toString()}
 			</li>
 		);
