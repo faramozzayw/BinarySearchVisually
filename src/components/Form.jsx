@@ -25,14 +25,11 @@ const Form = () => {
 		}
 
 		const mid = Math.floor((start + end) / 2);
-
 		dispatch("changeCurrent", mid);
-		console.info("call");
 
 		await delay(delayTime);
 
 		if (key === arr[mid]) {
-			console.warn(mid);
 			yield mid;
 		} else if (arr[mid] > key) {
 			yield* binarySearch(arr, key, start, mid - 1);
@@ -48,8 +45,7 @@ const Form = () => {
 
 		const gener = binarySearch(input, key);
 
-		for await (let _ of gener) {
-			console.log(_);
+		for await (let $_$ of gener) {
 		}
 
 		dispatch("changeCurrent", -1);

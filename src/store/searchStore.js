@@ -4,7 +4,6 @@ const searchStore = store => {
 	}));
 
 	store.on("changeCurrent", (state, currentIndex) => {
-		console.log(currentIndex);
 		return {
 			...state,
 			currentIndex,
