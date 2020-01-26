@@ -23,7 +23,7 @@ article.message {
 
 .array {
 	padding: 0;
-	margin: 2rem 5rem;
+	margin: 2rem 0rem;
 
 	display: flex;
 	flex-flow: column wrap;
@@ -43,11 +43,11 @@ article.message {
 	flex-flow: row wrap;
 	justify-content: center;
 	flex: none;
+	flex-wrap: wrap;
 
 	border: 5px var(--basic-color);
 	border-style: dashed solid;
-
-	width: max-content;
+	background-color: #ffffff;
 }
 
 .array.error .array-box {
@@ -119,23 +119,10 @@ article.message {
 
 .array-item.left,
 .array-item.right {
-	filter: blur(1.5px);
+	filter: blur(1.5px) grayscale(0.5);
 	z-index: 1;
 	transition: filter 0.1s ease-out;
 }
-
-/*
-.array-item.result {
-	color: firebrick;
-	transform: scale(1.75) rotate(720deg);
-	background-color: yellowgreen;
-	z-index: 1;
-	border-radius: 200px 135px 30px 114px;
-	box-shadow: 0 0 5px black;
-
-	translate: transform 1s ease-in;
-}
-*/
 
 .array-item.result {
 	transform: scale(1.5) rotate(720deg) translateY(20px);

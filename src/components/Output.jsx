@@ -30,7 +30,7 @@ const Output = () => {
 				<div class="message-header">
 					<p>Success 😃</p>
 				</div>
-				<div class="message-body has-text-left">{text}</div>
+				<div class="message-body has-text-left ">{text}</div>
 			</article>
 		);
 	} else {

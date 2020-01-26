@@ -24,7 +24,7 @@ const ArrayField = () => {
 					name="arrayInput"
 					onChange={updateInput}
 					required
-					// autoFocus
+					autoFocus
 				/>
 				<p className="help" data-error={arrayError.toString()}>
 					{arrayHelp[arrayError ? "isNan" : "isOk"]}
