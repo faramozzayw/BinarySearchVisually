@@ -5,7 +5,7 @@ import { isGoodResult } from "./../utils/predicates";
 
 const createText = (result, input, key) => {
 	if (isGoodResult(result)) {
-		return `The key '${key}' was found at the 0 index of the array '[${input.join(
+		return `The key '${key}' was found at the ${result} index of the array '[${input.join(
 			", ",
 		)}]'`;
 	} else {
