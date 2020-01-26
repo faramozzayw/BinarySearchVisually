@@ -18,10 +18,11 @@ const Form = () => {
 	);
 
 	const delayTime = 1000;
+	const failResult = -1;
 
 	async function* binarySearch(arr, key, start = 0, end = arr.length - 1) {
 		if (end < start) {
-			yield -1;
+			return failResult;
 		}
 
 		const mid = Math.floor((start + end) / 2);
