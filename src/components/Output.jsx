@@ -9,7 +9,7 @@ const createText = (result, input, key) => {
 			", ",
 		)}]'`;
 	} else {
-		return `The key '${key}' wasn't found of the array '[1,2,3,4]' '[${input.join(
+		return `The key '${key}' wasn't found of the array '[${input.join(
 			", ",
 		)}]'`;
 	}
