@@ -2,13 +2,13 @@ import React from "react";
 
 import useStoreon from "storeon/react";
 
+import delay from "delay";
+
 import ErrorButton from "./Buttons/ErrorButton";
 import SearchButton from "./Buttons/SearchButton";
 
 import KeyField from "./Fields/KeyField";
 import ArrayField from "./Fields/ArrayField";
-
-import delay from "delay";
 
 import { delayTime, failResult } from "./../utils/consts";
 
