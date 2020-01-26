@@ -2,7 +2,7 @@ import React, { useRef, useCallback } from "react";
 
 import useStoreon from "storeon/react";
 
-import { keyHelp } from "./../utils/consts";
+import { keyHelp } from "./../../utils/consts";
 
 const KeyField = () => {
 	const keyRef = useRef(null);

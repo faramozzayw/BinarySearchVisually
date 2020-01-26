@@ -2,7 +2,7 @@ import React, { useRef, useCallback } from "react";
 
 import useStoreon from "storeon/react";
 
-import { arrayHelp } from "./../utils/consts";
+import { arrayHelp } from "./../../utils/consts";
 
 const ArrayField = () => {
 	const arrayRef = useRef(null);

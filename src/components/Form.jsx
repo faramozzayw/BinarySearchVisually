@@ -5,10 +5,12 @@ import useStoreon from "storeon/react";
 import ErrorButton from "./Buttons/ErrorButton";
 import SearchButton from "./Buttons/SearchButton";
 
-import KeyField from "./KeyField";
-import ArrayField from "./ArrayField";
+import KeyField from "./Fields/KeyField";
+import ArrayField from "./Fields/ArrayField";
 
 import delay from "delay";
+
+import { delayTime, failResult } from "./../utils/consts";
 
 const Form = () => {
 	const { dispatch, input, globalError, key } = useStoreon(
@@ -16,9 +18,6 @@ const Form = () => {
 		"globalError",
 		"key",
 	);
-
-	const delayTime = 1000;
-	const failResult = -1;
 
 	async function* binarySearch(arr, key, start = 0, end = arr.length - 1) {
 		if (end < start) {
@@ -52,8 +51,6 @@ const Form = () => {
 		for await (let value of gener) {
 			result = value;
 		}
-
-		console.log(result);
 
 		dispatch("setResult", result);
 		dispatch("$toDefaultIndex");

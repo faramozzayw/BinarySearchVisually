@@ -9,3 +9,5 @@ export const keyHelp = {
 };
 
 export const separator = ",";
+export const delayTime = 1000;
+export const failResult = -1;
