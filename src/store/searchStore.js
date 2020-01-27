@@ -4,6 +4,7 @@ const searchStore = store => {
 		left: NaN,
 		right: NaN,
 		result: NaN,
+		showResult: false,
 	};
 
 	store.on("@init", () => ({ ...initialState }));
@@ -35,6 +36,12 @@ const searchStore = store => {
 			result,
 		};
 	});
+
+	store.on("toggleShowResult", (state, status) => ({
+		...state,
+		showResult: status, 
+	}));
+
 
 	store.on("$toDefault", () => ({ ...initialState }));
 	store.on("$toDefaultIndex", state => ({

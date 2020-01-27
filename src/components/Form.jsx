@@ -53,14 +53,19 @@ const Form = () => {
 		}
 
 		dispatch("setResult", result);
-		dispatch("$toDefaultIndex");
+		dispatch("toggleShowResult", true);
 	};
 
 	const Button = () =>
 		globalError ? <ErrorButton /> : <SearchButton onSubmit={onSubmit} />;
 
+  const onChange = e => {
+    dispatch("changeCurrent", -1);
+    dispatch("toggleShowResult", false);
+  }
+
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={onSubmit} onChange={onChange} >
 			<ArrayField />
 			<KeyField />
 			<Button />
