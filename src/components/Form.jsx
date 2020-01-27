@@ -59,10 +59,7 @@ const Form = () => {
 	const Button = () =>
 		globalError ? <ErrorButton /> : <SearchButton onSubmit={onSubmit} />;
 
-  const onChange = e => {
-    dispatch("changeCurrent", -1);
-    dispatch("toggleShowResult", false);
-  }
+  const onChange = e => dispatch("toggleShowResult", false);
 
 	return (
 		<form onSubmit={onSubmit} onChange={onChange} >

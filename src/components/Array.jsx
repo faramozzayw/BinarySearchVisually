@@ -3,13 +3,14 @@ import React from "react";
 import useStoreon from "storeon/react";
 
 const Array = ({ header = "Your array: " }) => {
-	const { input, globalError, currentIndex, left, right, result } = useStoreon(
+	const { input, globalError, currentIndex, left, right, result, showResult } = useStoreon(
 		"input",
 		"globalError",
 		"currentIndex",
 		"left",
 		"right",
 		"result",
+		"showResult", 
 	);
 
 	if (!input || input.length === 0) {
@@ -25,7 +26,7 @@ const Array = ({ header = "Your array: " }) => {
 			className += " left";
 		} else if (i >= right) {
 			className += " right";
-		} else if (i === result) {
+		} else if (i === result && showResult) {
 			className += " result";
 		}
 
@@ -38,7 +39,7 @@ const Array = ({ header = "Your array: " }) => {
 
 	return (
 		<section className={`array ${globalError ? "error" : ""}`}>
-			<h3>{header}</h3>
+			<h3 className="array-header" >{header}</h3>
 			<ul className="array-box">{list}</ul>
 		</section>
 	);

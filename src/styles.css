@@ -23,7 +23,7 @@ article.message {
 
 .array {
 	padding: 0;
-	margin: 2rem 0rem;
+	margin: 2rem 0;
 
 	display: flex;
 	flex-flow: column wrap;
@@ -32,7 +32,7 @@ article.message {
 	flex-wrap: nowrap;
 }
 
-.array h3 {
+.array .array-header {
 	font-size: 2rem;
 	text-align: center;
 	padding-block-end: 1rem;
@@ -40,7 +40,7 @@ article.message {
 
 .array .array-box {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 	justify-content: center;
 	flex: none;
 	flex-wrap: wrap;
@@ -65,14 +65,13 @@ article.message {
 }
 
 .array .array-item {
-	margin: 0px;
+	margin: 0;
 	padding: 1vmin 2.5vmin;
 
 	background-color: white;
 	color: #3273dc;
 
 	text-align: center;
-
 	font-size: 2.75rem;
 	font-weight: bold;
 
