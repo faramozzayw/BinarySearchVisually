@@ -9,14 +9,17 @@ const createText = (result, input, key) => {
 			", ",
 		)}]'`;
 	} else {
-		return `The key '${key}' wasn't found of the array '[${input.join(
-			", ",
-		)}]'`;
+		return `The key '${key}' wasn't found of the array '[${input.join(", ")}]'`;
 	}
 };
 
 const Output = () => {
-	const { input, result, key, showResult } = useStoreon("input", "result", "key", "showResult");
+	const { input, result, key, showResult } = useStoreon(
+		"input",
+		"result",
+		"key",
+		"showResult",
+	);
 
 	if (!showResult) {
 		return null;
@@ -28,7 +31,12 @@ const Output = () => {
 		return (
 			<article class="message is-success is-large">
 				<div class="message-header">
-					<p>Success 🦄✨😃</p>
+					<p>
+						Success{" "}
+						<span role="img" aria-label="Smiling face with laughing eyes">
+							&#128522;
+						</span>
+					</p>
 				</div>
 				<div class="message-body has-text-left ">{text}</div>
 			</article>
@@ -37,7 +45,12 @@ const Output = () => {
 		return (
 			<article class="message is-danger is-large">
 				<div class="message-header">
-					<p>Wasted 😭</p>
+					<p>
+						Wasted{" "}
+						<span role="img" aria-label="Frustrated face">
+							&#128542;
+						</span>
+					</p>
 				</div>
 				<div class="message-body has-text-left">{text}</div>
 			</article>
