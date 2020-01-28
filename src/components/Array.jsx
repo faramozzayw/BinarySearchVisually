@@ -1,16 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import useStoreon from "storeon/react";
 
 const Array = ({ header = "Your array: " }) => {
-	const { input, globalError, currentIndex, left, right, result, showResult } = useStoreon(
+	const {
+		input,
+		globalError,
+		currentIndex,
+		left,
+		right,
+		result,
+		showResult,
+	} = useStoreon(
 		"input",
 		"globalError",
 		"currentIndex",
 		"left",
 		"right",
 		"result",
-		"showResult", 
+		"showResult",
 	);
 
 	if (!input || input.length === 0) {
@@ -18,16 +27,17 @@ const Array = ({ header = "Your array: " }) => {
 	}
 
 	const list = input.map((el, i) => {
-		let className = "array-item";
+		const separator = " ";
+		let className = "array-item".concat(separator);
 
 		if (i === currentIndex) {
-			className += " active";
+			className = className.concat("active");
 		} else if (i <= left) {
-			className += " left";
+			className = className.concat("left");
 		} else if (i >= right) {
-			className += " right";
+			className = className.concat("right");
 		} else if (i === result && showResult) {
-			className += " result";
+			className = className.concat("result");
 		}
 
 		return (
@@ -39,10 +49,14 @@ const Array = ({ header = "Your array: " }) => {
 
 	return (
 		<section className={`array ${globalError ? "error" : ""}`}>
-			<h3 className="array-header" >{header}</h3>
+			<h3 className="array-header">{header}</h3>
 			<ul className="array-box">{list}</ul>
 		</section>
 	);
+};
+
+Array.propTypes = {
+	header: PropTypes.string,
 };
 
 export default Array;

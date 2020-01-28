@@ -39,9 +39,8 @@ const searchStore = store => {
 
 	store.on("toggleShowResult", (state, status) => ({
 		...state,
-		showResult: status, 
+		showResult: status,
 	}));
-
 
 	store.on("$toDefault", () => ({ ...initialState }));
 	store.on("$toDefaultIndex", state => ({
