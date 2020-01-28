@@ -100,7 +100,7 @@ article.message {
 	transform: scale(1.25);
 	outline: 5px dashed var(--basic-color);
 	color: blueviolet;
-	z-index: 1;
+	z-index: 100;
 	transition: all 0.25s easy-out;
 }
 

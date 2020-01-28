@@ -1,24 +1,31 @@
 import { isEmptyString } from "./../utils/predicates";
-
+import { checkInputError, chechArrayError } from "./../utils/funcs";
 import { separator } from "./../utils/consts";
 
+const isOk = "isOk";
+
 const inputStore = store => {
-	store.on("@init", () => ({
+	const initialState = {
 		input: null,
 		key: null,
 		arrayError: false,
+		arrayStatus: isOk,
 		keyError: false,
+		keyStatus: isOk,
 		globalError: false,
-	}));
+	};
 
-	store.on("updateInput", (state, _input) => {
-		const input = _input
+	store.on("@init", () => ({ ...initialState }));
+
+	store.on("updateInput", (state, rawInput) => {
+		const input = rawInput
 			.split(separator)
 			.map(elem => elem.trim())
 			.filter(elem => !isEmptyString(elem))
 			.map(Number);
 
-		const arrayError = input.includes(NaN);
+		const arrayError = chechArrayError(input);
+		const arrayStatus = arrayError ? checkInputError(rawInput) : isOk;
 		const globalError = state.keyError || arrayError;
 
 		return {
@@ -26,12 +33,15 @@ const inputStore = store => {
 			input,
 			arrayError,
 			globalError,
+			arrayStatus,
 		};
 	});
 
-	store.on("updateKey", (state, _key) => {
-		const key = Number(_key);
+	store.on("updateKey", (state, rawKey) => {
+		const key = Number(rawKey);
+
 		const keyError = Number.isNaN(key) || !Number.isFinite(key);
+		const keyStatus = keyError ? checkInputError(rawKey) : isOk;
 		const globalError = state.arrayError || keyError;
 
 		return {
@@ -39,6 +49,7 @@ const inputStore = store => {
 			key,
 			keyError,
 			globalError,
+			keyStatus,
 		};
 	});
 };

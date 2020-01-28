@@ -7,7 +7,11 @@ import { keyHelp } from "./../../utils/consts";
 const KeyField = () => {
 	const keyRef = useRef(null);
 
-	const { dispatch, keyError } = useStoreon("input", "keyError");
+	const { dispatch, keyError, keyStatus } = useStoreon(
+		"input",
+		"keyError",
+		"keyStatus",
+	);
 
 	const updateKey = useCallback(() => {
 		dispatch("updateKey", keyRef.current.value);
@@ -26,7 +30,7 @@ const KeyField = () => {
 					onChange={updateKey}
 				/>
 				<p className="help" data-error={keyError.toString()}>
-					{keyHelp[keyError ? "isNan" : "isOk"]}
+					{keyHelp[keyStatus]}
 				</p>
 			</div>
 		</div>

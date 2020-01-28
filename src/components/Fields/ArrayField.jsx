@@ -7,7 +7,11 @@ import { arrayHelp } from "./../../utils/consts";
 const ArrayField = () => {
 	const arrayRef = useRef(null);
 
-	const { dispatch, arrayError } = useStoreon("input", "arrayError");
+	const { dispatch, arrayError, arrayStatus } = useStoreon(
+		"input",
+		"arrayError",
+		"arrayStatus",
+	);
 
 	const updateInput = useCallback(() => {
 		dispatch("updateInput", arrayRef.current.value);
@@ -24,10 +28,10 @@ const ArrayField = () => {
 					name="arrayInput"
 					onChange={updateInput}
 					required
-					autoFocus
+					//autoFocus
 				/>
 				<p className="help" data-error={arrayError.toString()}>
-					{arrayHelp[arrayError ? "isNan" : "isOk"]}
+					{arrayHelp[arrayStatus]}
 				</p>
 			</div>
 		</div>
