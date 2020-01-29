@@ -29,8 +29,8 @@ const Output = () => {
 
 	if (isPositiveResult(result)) {
 		return (
-			<article class="message is-success is-large">
-				<div class="message-header">
+			<article className="message is-success is-large">
+				<div className="message-header">
 					<p>
 						Success{" "}
 						<span role="img" aria-label="Smiling face with laughing eyes">
@@ -38,13 +38,13 @@ const Output = () => {
 						</span>
 					</p>
 				</div>
-				<div class="message-body has-text-left ">{text}</div>
+				<div className="message-body has-text-left ">{text}</div>
 			</article>
 		);
 	} else {
 		return (
-			<article class="message is-danger is-large">
-				<div class="message-header">
+			<article className="message is-danger is-large">
+				<div className="message-header">
 					<p>
 						Wasted{" "}
 						<span role="img" aria-label="Frustrated face">
@@ -52,7 +52,7 @@ const Output = () => {
 						</span>
 					</p>
 				</div>
-				<div class="message-body has-text-left">{text}</div>
+				<div className="message-body has-text-left">{text}</div>
 			</article>
 		);
 	}

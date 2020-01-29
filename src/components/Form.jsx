@@ -44,7 +44,7 @@ const Form = () => {
 
 	const onSubmit = async e => {
 		e.preventDefault();
-
+		console.log(dispatch);
 		const gener = binarySearch(input, key);
 		let result = -1;
 
@@ -59,10 +59,10 @@ const Form = () => {
 	const Button = () =>
 		globalError ? <ErrorButton /> : <SearchButton onSubmit={onSubmit} />;
 
-  const onChange = e => dispatch("toggleShowResult", false);
+	const onChange = e => dispatch("toggleShowResult", false);
 
 	return (
-		<form onSubmit={onSubmit} onChange={onChange} >
+		<form onSubmit={onSubmit} onChange={onChange}>
 			<ArrayField />
 			<KeyField />
 			<Button />

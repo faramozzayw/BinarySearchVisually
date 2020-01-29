@@ -12,5 +12,5 @@ export const checkInputError = rawInput => {
 };
 
 export const chechArrayError = array => {
-	return array.includes(NaN);
+	return array.includes(NaN) || array.includes(Infinity) || array.includes(-Infinity);
 };
